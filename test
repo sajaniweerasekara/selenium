@@ -1,0 +1,66 @@
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+
+
+import com.thoughtworks.selenium.Wait;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import javax.naming.directory.SearchResult;
+
+
+
+public class test {
+	
+	
+	    public static void main(String[] args) {
+
+	      WebDriver driver = new FirefoxDriver();
+	    driver.get("http://www.google.com");//open google 
+	
+	    driver.manage().window().maximize();//maximize
+
+	 driver.findElement(By.id("gbqfq")).sendKeys("test");
+
+	driver.findElement(By.className("gbqfb")).click();//send key to google
+	
+	 driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+
+	String result = driver.findElement(By.id("resultStats")).getText();//enter to the text box and get the value 
+
+	System.out.println(result);
+	int totresult = Integer.parseInt(result);//cast result
+	
+	    
+	 
+
+	    if(totresult>=1000000000)
+	    {
+	   System.out.println("There are more than 1000000 results");
+	      
+	     }
+	      {
+	   	System.out.println("There are less than 1000000 results ");
+	       
+	     }
+
+	      driver.close();
+
+	       driver.quit();  
+          
+	
+	       
+	       
+	       
+	      
+	       
+	    }
+
+	
+	}
+
+
